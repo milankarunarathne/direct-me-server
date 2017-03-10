@@ -8,6 +8,7 @@ const createDoc = require('./src/db/notifications/createDocuments.js');
 const readDoc = require('./src/db/notifications/readDocuments.js');
 const notificationRouter = require('./src/routes/notificationRouter.js');
 const userRouter = require('./src/routes/userRouter.js');
+const locationRouter = require('./src/routes/locationRouter.js');
 
 const PORT = 3000;
 const HOST_NAME = '192.168.8.100';
@@ -21,6 +22,7 @@ app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x
 
 app.use('/notifications', notificationRouter);
 // app.use('/users', userRouter);
+app.use('/locations', locationRouter);
 
 // app.get('/', function(req, res) {
 //     res.json({message: 'Welcome to Direct Me.'});

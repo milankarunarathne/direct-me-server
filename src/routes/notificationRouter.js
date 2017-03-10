@@ -7,7 +7,7 @@ const readNotification = require('../db/notifications/readDocuments.js');
 const updateNotification = require('../db/notifications/updateDocuments.js');
 const deleteNotification = require('../db/notifications/deleteDocuments.js');
 
-const collectionName = 'contacts';
+const collectionName = 'notifications';
 
 router.get('/', function (req, res) {
     console.log('>>> GET: Request');
@@ -49,6 +49,11 @@ router.post('/', function (req, res) {
     const mongodb = req.app.locals.mongodb;
     const body = req.body;
     console.log('POST Body:', body);
+    // Convert String number to float
+    if(body.hasOwnProperty('location')) {
+        body.location.latitude = parseFloat(body.location.latitude);
+        body.location.longitude = parseFloat(body.location.longitude);
+    }
 
     createNotification.createDocuments(mongodb, body, { collectionName: collectionName}, function(err, result) {
         if(!err) {
@@ -65,6 +70,11 @@ router.put('/:id', function (req, res) {
     const id = new ObjectID(req.params.id);
     const body = req.body;
     console.log('POST Body:', body);
+    // Convert String number to float
+    if(body.hasOwnProperty('location')) {
+        body.location.latitude = parseFloat(body.location.latitude);
+        body.location.longitude = parseFloat(body.location.longitude);
+    }
 
     updateNotification.updateDocuments(mongodb, {'_id': id}, body, { collectionName: collectionName}, function(err, result) {
         if(!err) {

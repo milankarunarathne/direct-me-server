@@ -14,10 +14,16 @@ router.get('/', function (req, res) {
     const longitude = parseFloat(query.lon);
     const range = parseFloat(query.range);
     console.log('GET Query', query);
-    const newQuery = {
+    let newQuery = {
         'location.latitude': {$gte: (latitude-range), $lte:(latitude+range)},
         'location.longitude': {$gte:(longitude-range), $lte:(longitude+range)}
     };
+
+    if(query.hasOwnProperty('damageType')) {
+    newQuery['damageType'] = query['damageType'];
+    }
+
+
 
     readLocations.readLocations(mongodb, newQuery, {collectionName: collectionName}, function(err, result) {
         if(!err) {
@@ -27,5 +33,6 @@ router.get('/', function (req, res) {
         }
     });
 });
+
 
 module.exports = router;

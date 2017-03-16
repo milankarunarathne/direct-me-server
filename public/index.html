@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+
+<body>
+    <div id="header">
+        <h1>IFIX ROAD</h1>
+    </div>
+
+    <ul>
+      <li><a href="home.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="settings.html">Settings</a></li>
+      
+    </ul>
+
+    <div id="style-id1">
+        <form>
+           <input id="txtAddress" type="text" placeholder="Enter address here" />
+           <br></br>
+           <input type="button" onclick="GetLocation()" value="Get Location" />
+           <br></br>
+       </form>
+       <form>
+          <input type="radio" name="gender" value="" checked> 500km<br>
+          <input type="radio" name="gender" value="female"> 1000km<br>
+          <input type="radio" name="gender" value="other"> 1500km
+      </form>
+
+    <br></br>
+
+    </div>
+
+    <div id="map"></div>
+
+    <!-- In order to improve loading, load JS at the end -->
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+    <script type="text/javascript" src="/js/location.js"></script>
+
+    <script type="text/javascript">
+        /* Should not call in this way. Use a document ready */
+        (function() {
+            //var jsonData = eval ("(" + txt + ")");
+            // var jsonData = JSON.parse(result);
+            // for (var i = 0; i < jsonData.issues.length; i++) {
+            //     var counter = jsonData.issues[i];
+            //     //console.log(counter.counter_name);
+            //     alert(counter);
+            // }
+        })();
+    </script>
+
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBOu8RRGUpX9Wst-5Zb1bT2vFg82H_98qQ&callback=initMap">
+    </script>
+    <script type="text/javascript" src="/js/map.js"></script>
+
+</body>
+</html>

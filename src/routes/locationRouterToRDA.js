@@ -13,15 +13,14 @@ router.get('/', function (req, res) {
     const latitude = parseFloat(query.lat);
     const longitude = parseFloat(query.lon);
     const range = parseFloat(query.range);
+    const damageName = query.damageName;
     console.log('GET Query', query);
     const newQuery = {
         'location.latitude': {$gte: (latitude-range), $lte:(latitude+range)},
         'location.longitude': {$gte:(longitude-range), $lte:(longitude+range)},
+        'damageName': {$eq:(damageName)},
         'confirmStatus': {$eq:false}
     };
-    if(query.hasOwnProperty('damageType')) {
-    newQuery['damageType'] = query['damageType'];
-    }
 
 
 

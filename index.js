@@ -1,6 +1,16 @@
 const http = require('http');
-const url = require('url');
 const express = require('express');
+const url = require('url');
+
+//var https = require('https');
+
+//var httpServer = http.createServer(http);
+//var httpsServer = https.createServer(credentials, https);
+
+//var privateKey  = fs.readFileSync('sslcert/server.key', 'utf8');
+//var certificate = fs.readFileSync('sslcert/server.crt', 'utf8');
+//var credentials = {key: privateKey, cert: certificate};
+
 const bodyParser = require('body-parser');
 const MongoClient = require('mongodb').MongoClient;
 
@@ -9,9 +19,11 @@ const readDoc = require('./src/db/notifications/readDocuments.js');
 const notificationRouter = require('./src/routes/notificationRouter.js');
 const userRouter = require('./src/routes/userRouter.js');
 const locationRouter = require('./src/routes/locationRouter.js');
+const locationRouterToRDA = require('./src/routes/locationRouterToRDA.js');
+const locationRouterAtLogin = require('./src/routes/locationRouterAtLogin.js');
 
 const PORT = 3000;
-const HOST_NAME = '127.0.0.1';
+const HOST_NAME = '192.168.8.101';
 const mongoURL = 'mongodb://localhost:27017/directme';
 var mongodb = null;
 
@@ -22,9 +34,18 @@ app.use(express.static('public'));
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 
-app.use('/api/notifications', notificationRouter);
-// app.use('/api/users', userRouter);
+app.use('/api/notifications', notificationRouter); // app.use('/api/users', userRouter);
 app.use('/api/locations', locationRouter);
+app.use('/api/start/locations', locationRouterAtLogin);
+app.use('/locations', locationRouterToRDA); //web user 
+
+
+//httpServer.listen(8080);
+//httpsServer.listen(3000);
+
+//var httpServer = http.createServer(app);
+//var httpsServer = https.createServer(credentials, app);
+
 
 MongoClient.connect(mongoURL, function(err, db) {
     if(!err) {
@@ -34,7 +55,7 @@ MongoClient.connect(mongoURL, function(err, db) {
         // server.listen(PORT , '192.168.8.100', function(){
         //     console.log("Server listening on: http://localhost:%s", PORT);
         // });
-        app.listen(PORT, HOST_NAME);
+      app.listen(PORT, HOST_NAME);
         console.log("Server listening on: http://localhost:%s", PORT);
     } else {
         db.close();

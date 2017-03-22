@@ -17,11 +17,9 @@ router.get('/', function (req, res) {
     const newQuery = {
         'location.latitude': {$gte: (latitude-range), $lte:(latitude+range)},
         'location.longitude': {$gte:(longitude-range), $lte:(longitude+range)},
-        'confirmStatus': {$eq:false}
+        'confirmStatus': {$eq:false},
+         $or:[{'damageType':'Traffic'},{'damageType':'Accident'}]
     };
-    if(query.hasOwnProperty('damageType')) {
-    newQuery['damageType'] = query['damageType'];
-    }
 
 
 

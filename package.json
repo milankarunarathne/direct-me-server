@@ -27,7 +27,11 @@
   "dependencies": {
     "body-parser": "^1.17.1",
     "express": "^4.15.2",
+<<<<<<< HEAD
     "letsencrypt-express": "^2.0.6",
+=======
+    "fs": "0.0.1-security",
+>>>>>>> 774bab9a5fd8518f804ce6d4f8d9dda1bbae00e1
     "mongodb": "^2.2.16"
   }
 }

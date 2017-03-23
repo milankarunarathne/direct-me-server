@@ -25,9 +25,9 @@ const locationRouter = require('./src/routes/locationRouter.js');
 const locationRouterToRDA = require('./src/routes/locationRouterToRDA.js');
 const locationRouterAtLogin = require('./src/routes/locationRouterAtLogin.js');
 
-const PORTS = 443;
-const PORT = 80;
-const HOST_NAME = 'ewizardz.projects.mrt.ac.lk';
+const PORTS = 3000;
+const PORT = 8080;
+const HOST_NAME = '192.168.8.101';
 const mongoURL = 'mongodb://localhost:27017/directme';
 var  mongodb = null;
 
@@ -35,10 +35,10 @@ const app = express();
 
 app.use(express.static('public'));
 
-const credentials = {
+/*const credentials = {
         cert: fs.readFileSync('./sslcert/fullchain.pem'),
         key: fs.readFileSync('./sslcert/privkey.pem')
-      };
+      }; */
 
 app.use(require('helmet')());
 
@@ -70,7 +70,7 @@ MongoClient.connect(mongoURL, function(err, db) {
         // });
 
 	http.createServer(app).listen(PORT, HOST_NAME);
-	https.createServer(credentials, app).listen(PORTS, HOST_NAME);
+//	https.createServer(credentials, app).listen(PORTS, HOST_NAME);
 //	app.listen(PORT, HOST_NAME);
 	
         console.log("Server listening on: http://localhost:%s", PORT);

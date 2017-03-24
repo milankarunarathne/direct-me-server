@@ -2,60 +2,98 @@
 <html>
 <head>
     <link rel="stylesheet" href="/css/main.css">
-</head>
+	 
+		 <script type="text/javascript" 
+   src="jquery/jquery-3.2.0.js"></script>
+		     <script type = "text/javascript">
+         $(document).ready(function(){
+            alert("Hello, World!");
+         });
+      </script>
 
+<style> 
+input[type=text] {
+    width: 130px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    background-image: url('searchicon.png');
+    background-position: 10px 10px; 
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+
+input[type=text]:focus {
+    width: 100%;
+}
+</style>
+
+
+</head>
 <body>
     <div id="header">
         <h1>IFIX ROAD</h1>
     </div>
 
     <ul>
-      <li><a href="home.html">Home</a></li>
+      <li><a href="login.html">Home</a></li>
       <li><a href="about.html">About</a></li>
       <li><a href="settings.html">Settings</a></li>
       
     </ul>
 
-    <div id="style-id1">
-        <form>
-           <input id="txtAddress" type="text" placeholder="Enter address here" />
-           <br></br>
-           <input type="button" onclick="GetLocation()" value="Get Location" />
-           <br></br>
-       </form>
-       <form>
-          <input type="radio" name="gender" value="" checked> 500km<br>
-          <input type="radio" name="gender" value="female"> 1000km<br>
-          <input type="radio" name="gender" value="other"> 1500km
-      </form>
-
-    <br></br>
-
+    <div id="style-id5">
+	<input type="button" id="btn"  class="button" value="SmallPit" />
+		    <script type="text/javascript" src="jquery/external_demo2.js"> </script>	
+			
+    <br></br> 
+			<input type="button" class="button" id="btn1"  value="LargePit" />
+		    <script type="text/javascript" src="jquery/external_demo3.js"> </script>	
+			
+    <br></br> 
+			<input type="button" class="button"  id="btn2"  value="MediumPit" />
+		    <script type="text/javascript" src="jquery/external_demo4.js"> </script>	
+			<br></br> 
+			<input type="button" class="button"  id="btn3"  value="Bumper" />
+		    <script type="text/javascript" src="jquery/external_demo5.js"> </script>	
+			<br></br> 
+			<input type="button" class="button"  id="btn4"  value="RoadDamages1" />
+		    <script type="text/javascript" src="jquery/external_demo6.js"> </script>	
+			<br></br> 
+			<input type="button" class="button"  id="btn5"  value="RoadDamages2" />
+		    <script type="text/javascript" src="jquery/external_demo7.js"> </script>	
+			<br></br> 
+			<input type="button" class="button"  id="btn6"  value="RoadDamages3" />
+		    <script type="text/javascript" src="jquery/external_demo8.js"> </script>	
+			<br></br >
+		
     </div>
 
-    <div id="map"></div>
+    
+    <div id="map">
+	
+	</div>
 
     <!-- In order to improve loading, load JS at the end -->
     <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
     <script type="text/javascript" src="/js/location.js"></script>
 
-    <script type="text/javascript">
-        /* Should not call in this way. Use a document ready */
-        (function() {
-            //var jsonData = eval ("(" + txt + ")");
-            // var jsonData = JSON.parse(result);
-            // for (var i = 0; i < jsonData.issues.length; i++) {
-            //     var counter = jsonData.issues[i];
-            //     //console.log(counter.counter_name);
-            //     alert(counter);
-            // }
-        })();
-    </script>
-
+  
+       
+   
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBOu8RRGUpX9Wst-5Zb1bT2vFg82H_98qQ&callback=initMap">
     </script>
     <script type="text/javascript" src="/js/map.js"></script>
+	
+
+ 
+  
+  
 
 </body>
 </html>

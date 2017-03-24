@@ -1,4 +1,4 @@
-(function() {
+
 
     function GetLocation() {
         var geocoder = new google.maps.Geocoder();
@@ -15,12 +15,14 @@
               });
                 var marker = new google.maps.Marker({
                   position: uluru,
+				   //title: 'Hello World!'
                   map: map
               });
             } else {
                 alert("Request failed.")
             }
         });
-    };
-
-})();
+    }
+	
+	
+	

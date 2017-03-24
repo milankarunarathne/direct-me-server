@@ -6,13 +6,14 @@
         font-family:Ca;
     }
     #header{
-       background-color:#cccccc;
+		background-image:url("/images/bb.jpg") ;
+      
        text-align:center;
 
        padding:10px 10px 10px 10px;
    }
    #header h1{
-       font-family:Calibri;
+       font-family:Times New Roman;
        color:black;
        font-size:25pt;
    }
@@ -44,7 +45,7 @@ li {
 li a {
     display: block;
     color: white;
-    font-size:20pt;
+    font-size:15pt;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
@@ -59,19 +60,20 @@ li a:hover:not(.active) {
     padding:20px;background-image:url("../Images/mmm.jpg");height:600px;width:700px;
 }
 #style-id1{
-    padding:20px;background-color:#ffe6e6;position:absolute; TOP:173px; LEFT:83%;WIDTH:13.5% ;HEIGHT:85%;
+    padding:20px;background-color:#D8D8D8;position:absolute; TOP:185px; LEFT:83%;WIDTH:13.5% ;HEIGHT:85%;
 }
 #style-id2{
     padding:20px;background-color:#000033;position:absolute; TOP:300px; LEFT:240px;WIDTH:1060px ;HEIGHT:500px;
 }
 #style-id3{
-    padding:155px 155px 155px 155px;background-image:url("../Images/ttt.jpg");position:absolute;HEIGHT:794px;WIDTH:1022px;
+     padding:20px;background-color:#D8D8D8;position:absolute; TOP:20%; LEFT:83%;WIDTH:13.5% ;HEIGHT:85%;
 }
 #style-id4{
-    padding:20px;background-color:#ffff33;position:absolute;WIDTH:534px;TOP:565px ;HEIGHT:20px;left:765;
+    padding:20px;background-color:#FBEFFB;position:absolute; TOP:185px; LEFT:0.5%;WIDTH:96% ;HEIGHT:85%;
 }
+
 #style-id5{
-    padding:20px;background-image:url("../Images/ddd.jpg");position:absolute; TOP:620px;WIDTH:533px ;HEIGHT:360px;left:765px;
+    padding:20px;background-color:#D8D8D8;position:absolute; TOP:185px; LEFT:83%;WIDTH:13.5% ;HEIGHT:85%;
 }
 #style-id6{
     padding:20px;background-color:purple;position:absolute; TOP:1000px;WIDTH:570px ;HEIGHT:10px;left:730px;
@@ -92,7 +94,7 @@ li a:hover:not(.active) {
 
 
 P{
-    color:#00ffff;font-size:23pt;font-style:italic;position:absolute; TOP:50px; LEFT:50px;
+    color:black;font-size:15pt;font-style:Times New Roman;position:absolute; TOP:50px; LEFT:100px;
 }
 P1{
     color:#33ccff;font-size:20pt;font-style:italic;position:absolute; TOP:300px;left:20px;
@@ -182,3 +184,86 @@ input[type=text]:focus {
     margin: 4px 2px;
     cursor: pointer;
 }
+
+.button:hover {background-color:  #004466}
+
+.button:active {
+  background-color: #00a3cc;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+.popup {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* The actual popup */
+.popup .popuptext {
+    visibility: hidden;
+    width: 160px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -80px;
+}
+
+/* Popup arrow */
+.popup .popuptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+/* Toggle this class - hide and show the popup */
+.popup .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s;
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+    from {opacity: 0;} 
+    to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity:1 ;}
+}
+	
+
+.button1 {
+    background-color: #4B545E; 
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.button11 {border-radius: 50%;}
+.button22 {border-radius: 50%;}
+
+
+	

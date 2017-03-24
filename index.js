@@ -26,9 +26,9 @@ const locationRouterToRDA = require('./src/routes/locationRouterToRDA.js');
 const locationRouterAtLogin = require('./src/routes/locationRouterAtLogin.js');
 const locationRouterToPolice = require('./src/routes/locationRouterToPolice.js');
 
-const PORTS = 3000;
-const PORT = 8080;
-const HOST_NAME = '192.168.8.100';
+const PORT = 3000;
+const PORT_8080 = 8080;
+const HOST_NAME = 'localhost';
 const mongoURL = 'mongodb://localhost:27017/directme';
 var  mongodb = null;
 
@@ -39,7 +39,7 @@ app.use(express.static('public'));
 /*const credentials = {
         cert: fs.readFileSync('./sslcert/fullchain.pem'),
         key: fs.readFileSync('./sslcert/privkey.pem')
-      }; */
+}; */
 
 app.use(require('helmet')());
 

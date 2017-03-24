@@ -3,7 +3,6 @@ const ObjectID = require('mongodb').ObjectID;
 var router = express.Router();
 
 const readLocations = require('../db/locations/readLocations.js');
-const updateNotification = require('../db/notifications/updateDocuments.js');
 
 const collectionName = 'notifications';
 
@@ -24,6 +23,7 @@ router.get('/', function (req, res) {
     };
 
 
+
     readLocations.readLocations(mongodb, newQuery, {collectionName: collectionName}, function(err, result) {
         if(!err) {
             res.json(result);
@@ -37,14 +37,12 @@ router.put('/:id', function (req, res) {
     console.log('>>> PUT Notification with id:', req.params.id);
     const mongodb = req.app.locals.mongodb;
     const id = new ObjectID(req.params.id);
-    let body = req.body;
+    const body = req.body;
     console.log('POST Body:', body);
     // Convert String number to float
-    if(body.hasOwnProperty('confirmStatus')) {
-        body['confirmStatus'] = (body.confirmStatus == 'true')
-    }
-    if(body.hasOwnProperty('repairing')) {
-        body['repairing'] = (body.repairing == 'true')
+    if(body.hasOwnProperty('location')) {
+        body.location.latitude = parseFloat(body.location.latitude);
+        body.location.longitude = parseFloat(body.location.longitude);
     }
 
     updateNotification.updateDocuments(mongodb, {'_id': id}, body, { collectionName: collectionName}, function(err, result) {
@@ -55,8 +53,6 @@ router.put('/:id', function (req, res) {
         }
     });
 });
-
-
 
 
 module.exports = router;

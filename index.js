@@ -24,10 +24,11 @@ const userRouter = require('./src/routes/userRouter.js');
 const locationRouter = require('./src/routes/locationRouter.js');
 const locationRouterToRDA = require('./src/routes/locationRouterToRDA.js');
 const locationRouterAtLogin = require('./src/routes/locationRouterAtLogin.js');
+const locationRouterToPolice = require('./src/routes/locationRouterToPolice.js');
 
 const PORTS = 3000;
 const PORT = 8080;
-const HOST_NAME = '192.168.8.101';
+const HOST_NAME = '192.168.8.100';
 const mongoURL = 'mongodb://localhost:27017/directme';
 var  mongodb = null;
 
@@ -50,8 +51,9 @@ app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x
 app.use('/api/notifications', notificationRouter); // app.use('/api/users', userRouter);
 app.use('/api/locations', locationRouter);
 app.use('/api/start/locations', locationRouterAtLogin);
-app.use('/locations', locationRouterToRDA); //web user 
 
+app.use('/notifications/rda', locationRouterToRDA );   // web user rda
+app.use('/notifications/police', locationRouterToPolice);  // web user police
 
 //httpServer.listen(8080);
 //httpsServer.listen(3000);
